@@ -33,6 +33,12 @@ const APP = {
             }
         })
 
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                APP.addNewItem();
+            }
+        });
+
 
     },
 
@@ -87,7 +93,7 @@ const APP = {
         console.log(date);
         let p = document.createElement("p");
         p.textContent = date;
-        title.appendChild(p); 
+        title.appendChild(p);
     },
 
     displayTodo() {
@@ -130,9 +136,9 @@ const APP = {
     },
 
     addNewItem() {
-        let input =  document.querySelector("input[type=text]"); 
-        let value =input.value.trim();
-        if(APP.todoList.includes(value)) {
+        let input = document.querySelector("input[type=text]");
+        let value = input.value.trim();
+        if (APP.todoList.includes(value)) {
             // doesnot include the task if already there
             input.value = "";
             return
